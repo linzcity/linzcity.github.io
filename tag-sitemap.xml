@@ -3,14 +3,21 @@
 
     <url>
         <loc>http://yoursite-url/tags/Hexo/</loc>
-        <lastmod>2018-11-05T08:10:40.530Z</lastmod>
+        <lastmod>2018-11-20T13:12:31.803Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://yoursite-url/tags/Blog/</loc>
-        <lastmod>2018-11-05T08:10:40.530Z</lastmod>
+        <lastmod>2018-11-20T13:13:03.183Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/tags/francais/</loc>
+        <lastmod>2018-11-20T13:13:03.183Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
