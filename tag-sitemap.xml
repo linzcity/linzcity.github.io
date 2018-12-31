@@ -9,15 +9,15 @@
     </url>
 
     <url>
-        <loc>http://yoursite-url/tags/Blog/</loc>
-        <lastmod>2018-11-20T13:13:03.183Z</lastmod>
+        <loc>http://yoursite-url/tags/francais/</loc>
+        <lastmod>2018-11-25T08:09:28.908Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite-url/tags/francais/</loc>
-        <lastmod>2018-11-20T13:13:03.183Z</lastmod>
+        <loc>http://yoursite-url/tags/Blog/</loc>
+        <lastmod>2018-11-25T08:09:28.908Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

@@ -7,8 +7,16 @@
     </url>
 
     <url>
+        <loc>http://yoursite-url/2018/11/25/french2/</loc>
+        <lastmod>2018-11-25T08:09:28.908Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite-url/2018/11/20/french1/</loc>
-        <lastmod>2018-11-20T13:13:03.183Z</lastmod>
+        <lastmod>2018-11-25T06:57:14.434Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
