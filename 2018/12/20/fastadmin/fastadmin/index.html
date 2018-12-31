@@ -90,9 +90,9 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#Fastadmin" title="Fastadmin">Fastadmin</a>
-                            
                               <a class="tag" href="/tags/#Blog" title="Blog">Blog</a>
+                            
+                              <a class="tag" href="/tags/#Fastadmin" title="Fastadmin">Fastadmin</a>
                             
                         </div>
                         <h1>Fastadmin</h1>
@@ -217,11 +217,47 @@
                 post-container">
 
                 <h3><span id="安装和说明文档">安装和说明文档</span></h3>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">参考官网</span></span><br><span class="line"><span class="string">[Fastadmin官网](https://doc.fastadmin.net/docs/index.html)</span></span><br></pre></td></tr></table></figure>
-<p>###自定义-菜单</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1. 首先通过 权限管理--菜单规则 关闭不需要的菜单</span><br><span class="line"></span><br><span class="line">2. 也可通过数据库关闭菜单，如：“权限管理”这个菜单</span><br><span class="line">    fa_auth_rule:找到name为auth的列，ismenu改为0</span><br><span class="line">    &lt;font color=&quot;yellow&quot;&gt;菜单具体规则即name可在前台权限管理中看到&lt;/font&gt;</span><br><span class="line"></span><br><span class="line">3. 菜单规则：</span><br><span class="line">    fa_auth_rule：找到aute/rule</span><br><span class="line"></span><br><span class="line">&lt;font color=&quot;yellow&quot;&gt;注意修改后清除缓存。&lt;/font&gt;</span><br></pre></td></tr></table></figure>
-<p>###自定义–样式</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> <span class="string">主页：即第一页</span></span><br><span class="line"><span class="string">application/index/view/index/index.html</span></span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> <span class="string">其他页面：包括登录页、进入后主页</span></span><br><span class="line"><span class="string">application/admin/view</span></span><br><span class="line"></span><br><span class="line"><span class="number">3.</span> <span class="string">首页的控制台关闭在：application/admin/view/layout/default</span></span><br><span class="line"><span class="string">找到class="breadcrumb</span> <span class="string">pull-left"将其中的href="javascript:;"</span> <span class="string">便可</span></span><br><span class="line"></span><br><span class="line"><span class="number">4.</span> <span class="string">如果希望前台不可以修改某些字段，可以到具体的控制器里修改前端代码</span></span><br><span class="line"><span class="string">地址：application/admin/view/控制器/edit</span></span><br><span class="line"><span class="string">&lt;font</span> <span class="string">color="red"&gt;如自动生成的input框，加上disabled即可&lt;/font&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="number">5.</span> <span class="string">如果要修改逻辑...嗯，这就有点麻烦了。暂时没用到，寻求社区。</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">参考官网</span></span><br></pre></td></tr></table></figure>
+<p><a href="https://doc.fastadmin.net/docs/index.html" target="_blank" rel="noopener">Fastadmin官网</a></p>
+<h3><span id="自定义-菜单">自定义-菜单</span></h3>
+<ol>
+<li>
+<p>首先通过 权限管理–菜单规则 关闭不需要的菜单</p>
+</li>
+<li>
+<p>也可通过数据库关闭菜单，如：“权限管理”这个菜单<br>
+fa_auth_rule:找到name为auth的列，ismenu改为0<br>
+<font color="yellow">菜单具体规则即name可在前台权限管理中看到</font></p>
+</li>
+<li>
+<p>菜单规则：<br>
+fa_auth_rule：找到aute/rule</p>
+</li>
+</ol>
+<p><font color="yellow">注意修改后清除缓存。</font></p>
+<h3><span id="自定义样式">自定义–样式</span></h3>
+<ol>
+<li>
+<p>主页：即第一页<br>
+application/index/view/index/index.html</p>
+</li>
+<li>
+<p>其他页面：包括登录页、进入后主页<br>
+application/admin/view</p>
+</li>
+<li>
+<p>首页的控制台关闭在：application/admin/view/layout/default<br>
+找到class=&quot;breadcrumb pull-left&quot;将其中的href=“javascript:;” 便可</p>
+</li>
+<li>
+<p>如果希望前台不可以修改某些字段，可以到具体的控制器里修改前端代码<br>
+地址：application/admin/view/控制器/edit<br>
+<font color="red">如自动生成的input框，加上disabled即可</font></p>
+</li>
+<li>
+<p>如果要修改逻辑…嗯，这就有点麻烦了。暂时没用到，寻求社区。</p>
+</li>
+</ol>
 
                 
 
@@ -261,7 +297,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">安装和说明文档</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">安装和说明文档</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">自定义-菜单</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">自定义–样式</span></a></li></ol>
         
         </div>
       </aside>
@@ -281,9 +317,9 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#Fastadmin" title="Fastadmin">Fastadmin</a>
-                        
                           <a class="tag" href="/tags/#Blog" title="Blog">Blog</a>
+                        
+                          <a class="tag" href="/tags/#Fastadmin" title="Fastadmin">Fastadmin</a>
                         
                     </div>
                 </section>
