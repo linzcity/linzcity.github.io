@@ -8,14 +8,22 @@
 
     <url>
         <loc>http://yoursite-url/2018/11/20/wxapp/wxapp/</loc>
-        <lastmod>2018-12-31T04:11:01.774Z</lastmod>
+        <lastmod>2018-12-31T04:40:39.332Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>http://yoursite-url/2018/11/25/french2/</loc>
+        <loc>http://yoursite-url/2018/12/20/fastadmin/fastadmin/</loc>
+        <lastmod>2018-12-31T04:37:07.263Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2018/11/25/french/french2/</loc>
         <lastmod>2018-11-25T08:09:28.908Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -23,7 +31,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite-url/2018/11/20/french1/</loc>
+        <loc>http://yoursite-url/2018/11/20/apicloud/apicloud/</loc>
         <lastmod>2018-11-25T06:57:14.434Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -31,7 +39,63 @@
     </url>
 
     <url>
-        <loc>http://yoursite-url/2017/03/18/hexo-theme-beantech/</loc>
+        <loc>http://yoursite-url/2018/11/20/french/french1/</loc>
+        <lastmod>2018-11-25T06:57:14.434Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2018/11/20/frontend/front-html/</loc>
+        <lastmod>2018-11-25T06:57:14.434Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2018/11/20/frontend/frontend-css/</loc>
+        <lastmod>2018-11-25T06:57:14.434Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2018/11/20/frontend/frontend-js/</loc>
+        <lastmod>2018-11-25T06:57:14.434Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2018/11/20/mysql/mysql/</loc>
+        <lastmod>2018-11-25T06:57:14.434Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2018/11/20/php/php-mysqli/</loc>
+        <lastmod>2018-11-25T06:57:14.434Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2018/11/20/server/server/</loc>
+        <lastmod>2018-11-25T06:57:14.434Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2017/03/18/hexo-theme-beantech/hexo-theme-beantech/</loc>
         <lastmod>2018-11-20T13:12:31.803Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
