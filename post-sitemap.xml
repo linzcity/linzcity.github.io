@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://yoursite-url/2018/11/20/wxapp/</loc>
+        <lastmod>2018-12-31T04:11:01.774Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite-url/2018/11/25/french2/</loc>
         <lastmod>2018-11-25T08:09:28.908Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -15,7 +23,71 @@
     </url>
 
     <url>
+        <loc>http://yoursite-url/2018/11/20/apicloud/</loc>
+        <lastmod>2018-11-25T06:57:14.434Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2018/11/20/fastadmin/</loc>
+        <lastmod>2018-11-25T06:57:14.434Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite-url/2018/11/20/french1/</loc>
+        <lastmod>2018-11-25T06:57:14.434Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2018/11/20/front-html/</loc>
+        <lastmod>2018-11-25T06:57:14.434Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2018/11/20/frontend-css/</loc>
+        <lastmod>2018-11-25T06:57:14.434Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2018/11/20/frontend-js/</loc>
+        <lastmod>2018-11-25T06:57:14.434Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2018/11/20/mysql/</loc>
+        <lastmod>2018-11-25T06:57:14.434Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2018/11/20/php-mysqli/</loc>
+        <lastmod>2018-11-25T06:57:14.434Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2018/11/20/server/</loc>
         <lastmod>2018-11-25T06:57:14.434Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
