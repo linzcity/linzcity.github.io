@@ -8,7 +8,7 @@
 
     <url>
         <loc>http://yoursite-url/2018/12/20/fastadmin/fastadmin/</loc>
-        <lastmod>2018-12-31T05:35:39.191Z</lastmod>
+        <lastmod>2018-12-31T05:40:48.748Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -39,7 +39,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite-url/2018/11/20/frontend/front-html/</loc>
+        <loc>http://yoursite-url/2018/11/20/french/french1/</loc>
         <lastmod>2018-11-25T06:57:14.434Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -47,7 +47,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite-url/2018/11/20/french/french1/</loc>
+        <loc>http://yoursite-url/2018/11/20/frontend/front-html/</loc>
         <lastmod>2018-11-25T06:57:14.434Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -79,7 +79,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite-url/2018/11/20/server/server/</loc>
+        <loc>http://yoursite-url/2018/11/20/php/php-mysqli/</loc>
         <lastmod>2018-11-25T06:57:14.434Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -87,7 +87,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite-url/2018/11/20/php/php-mysqli/</loc>
+        <loc>http://yoursite-url/2018/11/20/server/server/</loc>
         <lastmod>2018-11-25T06:57:14.434Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
