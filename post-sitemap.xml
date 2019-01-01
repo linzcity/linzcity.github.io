@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://yoursite-url/2018/11/25/french/fuck/</loc>
+        <lastmod>2019-01-01T07:44:08.327Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite-url/2018/11/20/mysql/mysql-space-index/</loc>
         <lastmod>2019-01-01T07:28:32.225Z</lastmod>
         <changefreq>weekly</changefreq>
