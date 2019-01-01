@@ -136,14 +136,14 @@
 
                         
                         <li>
-                            <a href="/archive/">时间线</a>
+                            <a href="/about/">一个人，一本书</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">一个人，一本书</a>
+                            <a href="/archive/">时间线</a>
                         </li>
                         
                     
@@ -213,21 +213,30 @@
 
 <div class="post-preview">
 
-    <a href="/2018/11/20/mysql/mysql-emoji/">
+    <a href="/2018/11/20/mysql/mysql-space-index/">
         <h2 class="post-title">
-            mysql存储emoji表情
+            mysql实现附加人、poi查找
         </h2>
         <h3 class="post-subtitle">
-            
+            简单记录学习到的4种方法
         </h3>
         <div class="post-content-preview">
-            
-大概：mysql默认字符集为utf8，而utf8一个字符最多支持3个字节，但表情emoji占用4个字节，因此需要更改字符集为utf8mb4。
+            方案1：数据库+java共同处理
 
+直接存储经纬度信息，查找时带着经纬度，按照公式查找指定范围内的数据
+想法最直接、实现也最容易，但是效率很低。
 
-windows下修改：
+方案2：（数据库+java工具类处理）
 
-1234567891011121314151617181920步骤：1.修改my.ini    找到mysql安装目录(比如：programdata - mysql - my.ini)，权限问题，用管理员操作cmd，进入......
+区间查找
+使用到com.spatial4j
+
+com.spatial4j
+spatial4j
+0.5
+
+具体思路：
+表中使用两个字段存储经度和纬度，提前计算出经纬度的范围，然后在这两个字段上加上索引，提高......
         </div>
     </a>
     
@@ -406,15 +415,15 @@ This BeanTech theme created by YuHsuan modified from the original Porter ......
         </li>
       
         <li>
-          <a href="/2018/11/20/mysql/mysql-tip/">mysql简单数据搬移方法</a>
+          <a href="/2018/11/20/french/french1/">“法语聊天用语01”</a>
         </li>
       
         <li>
-          <a href="/2018/11/20/mysql/mysql-linux/">远程连接mysql</a>
+          <a href="/2018/11/20/server/server-https/">Nginx配置https</a>
         </li>
       
         <li>
-          <a href="/2018/11/20/mysql/mysql-space-index/">mysql实现附加人、poi查找</a>
+          <a href="/2018/11/20/mysql/mysql-emoji/">mysql存储emoji表情</a>
         </li>
       
     </ul>

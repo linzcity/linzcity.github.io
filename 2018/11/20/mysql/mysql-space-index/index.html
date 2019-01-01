@@ -146,14 +146,14 @@
 
                         
                         <li>
-                            <a href="/archive/">时间线</a>
+                            <a href="/about/">一个人，一本书</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">一个人，一本书</a>
+                            <a href="/archive/">时间线</a>
                         </li>
                         
                     
@@ -223,78 +223,43 @@
 </blockquote>
 <h3 id="方案2数据库java工具类处理">方案2：（数据库+java工具类处理）</h3>
 <blockquote>
-<p>区间查找</p>
-</blockquote>
-<blockquote>
-<p>使用到com.spatial4j</p>
-</blockquote>
-<blockquote>
-<dependency> 
-    <groupid>com.spatial4j</groupid>
-    <artifactid>spatial4j</artifactid>
-    <version>0.5</version>
-</dependency>
-</blockquote>
-<blockquote>
-<p>具体思路：<br>
+<p>区间查找<br>
+使用到com.spatial4j<br>
+<dependency><br>
+<groupid>com.spatial4j</groupid><br>
+<artifactid>spatial4j</artifactid><br>
+<version>0.5</version><br>
+</dependency><br>
+具体思路：<br>
 表中使用两个字段存储经度和纬度，提前计算出经纬度的范围，然后在这两个字段上加上索引，提高搜索性能。<br>
 计算出经纬度的范围：已知条件是移动设备所在的经纬度，还有满足业务要求的半径，这很像初中的一道平面几何题：给定圆心坐标和半径，求该圆外切正方形四个顶点的坐标。而我们面对的是一个球体，公式较复杂，便可以使用spatial4j工具类来计算。</p>
 </blockquote>
 <p><font color="red">示例代码：</font></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 移动设备经纬度 </span><br><span class="line">double lon = 116.312528, lat = 39.983733;</span><br><span class="line">// 千米 </span><br><span class="line">int radius = 1; </span><br><span class="line"></span><br><span class="line">SpatialContext geo = SpatialContext.GEO;</span><br><span class="line"></span><br><span class="line">Rectangle rectangle = geo.getDistCalc().calcBoxByDistFromPt( </span><br><span class="line">geo.makePoint(lon, lat), radius * DistanceUtils.KM_TO_DEG, geo, null);</span><br><span class="line"></span><br><span class="line">System.out.println(rectangle.getMinX() + &quot;-&quot; + rectangle.getMaxX());// 经度范围</span><br><span class="line">System.out.println(rectangle.getMinY() + &quot;-&quot; + rectangle.getMaxY());// 纬度范围</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>这样使用sql语句查询时：</p>
-</blockquote>
-<blockquote>
-<p>SELECT id, name FROM customer WHERE (lon BETWEEN ? AND ?) AND (lat BETWEEN ? AND ?);</p>
-</blockquote>
-<blockquote>
-<p>给lon、lat添加索引：</p>
-</blockquote>
-<blockquote>
-<p>INDEX <code>idx_lon_lat</code> (<code>lon</code>, <code>lat</code>)</p>
+<p>这样使用sql语句查询时：<br>
+SELECT id, name FROM customer WHERE (lon BETWEEN ? AND ?) AND (lat BETWEEN ? AND ?);<br>
+给lon、lat添加索引：<br>
+INDEX <code>idx_lon_lat</code> (<code>lon</code>, <code>lat</code>)</p>
 </blockquote>
 <h3 id="方案3同样使用和2相同的工具类不一样的原理geohash">方案3：同样使用和2相同的工具类，不一样的原理：geohash</h3>
 <blockquote>
-<p>原理较复杂，大概就是：geohash算法把二维的经纬度编码成一维的字符串，它的特点是越相近的经纬度编码后越相似，所以可以通过前缀like的方式去匹配周围的商户</p>
-</blockquote>
-<blockquote>
-<p>故数据库增加一个字段geo_code，来存储每个商户的geohash编码，并且建立索引</p>
-</blockquote>
-<blockquote>
-<p>经纬度转为geohash编码</p>
-</blockquote>
-<blockquote>
-<p>spatial4j提供了一个工具类GeohashUtils.encodeLatLon(lat, lon)，默认精度是12位，网上有geo_code长度与距离对照表。一般为5或6</p>
-</blockquote>
-<blockquote>
-<p>sql语句：</p>
-</blockquote>
-<blockquote>
-<p>SELECT id, name FROM customer WHERE geo_code LIKE CONCAT(?, ‘%’);</p>
-</blockquote>
-<blockquote>
-<p>setString(1,geo_code)</p>
-</blockquote>
-<blockquote>
-<p>研究一下geohash后容易发现，有一个很特殊但不得不面对的：边缘问题</p>
-</blockquote>
-<blockquote>
-<p>geohash最终是在地图上铺上了一个网格，共9个，每一个网格代表一个geohash值，当传入的坐标接近当前网格的边界时，用上面的搜索方式就会丢失它附近的数据</p>
-</blockquote>
-<blockquote>
-<p>解决方案：</p>
-</blockquote>
-<blockquote>
-<p>我们查询时，除了使用当前位置的geohash编码进行匹配外，还使用周围8个网格的geohash编码，这样可以避免这个问题。<br>
-计算周围8个网格的geohash：使用geohash-java。</p>
-</blockquote>
-<blockquote>
-<dependency> 
-    <groupid>ch.hsr</groupid> 
-    <artifactid>geohash</artifactid> 
-    <version>1.3.0</version>
-</dependency>
+<p>原理较复杂，大概就是：geohash算法把二维的经纬度编码成一维的字符串，它的特点是越相近的经纬度编码后越相似，所以可以通过前缀like的方式去匹配周围的商户<br>
+故数据库增加一个字段geo_code，来存储每个商户的geohash编码，并且建立索引<br>
+经纬度转为geohash编码<br>
+spatial4j提供了一个工具类GeohashUtils.encodeLatLon(lat, lon)，默认精度是12位，网上有geo_code长度与距离对照表。一般为5或6<br>
+sql语句：<br>
+SELECT id, name FROM customer WHERE geo_code LIKE CONCAT(?, ‘%’);<br>
+setString(1,geo_code)<br>
+研究一下geohash后容易发现，有一个很特殊但不得不面对的：边缘问题&gt; geohash最终是在地图上铺上了一个网格，共9个，每一个网格代表一个geohash值，当传入的坐标接近当前网格的边界时，用上面的搜索方式就会丢失它附近的数据<br>
+解决方案：<br>
+我们查询时，除了使用当前位置的geohash编码进行匹配外，还使用周围8个网格的geohash编码，这样可以避免这个问题。<br>
+计算周围8个网格的geohash：使用geohash-java。<br>
+<dependency><br>
+<groupid>ch.hsr</groupid><br>
+<artifactid>geohash</artifactid><br>
+<version>1.3.0</version><br>
+</dependency></p>
 </blockquote>
 <p><font color="red">代码:</font></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 移动设备经纬度 </span><br><span class="line">double lon = 116.312528, lat = 39.983733;</span><br><span class="line"></span><br><span class="line">GeoHash geoHash = GeoHash.withCharacterPrecision(lat, lon, 10);</span><br><span class="line"></span><br><span class="line">// 当前 </span><br><span class="line">System.out.println(geoHash.toBase32());</span><br><span class="line">// N, NE, E, SE, S, SW, W, NW </span><br><span class="line"></span><br><span class="line">GeoHash[] adjacent = geoHash.getAdjacent();</span><br><span class="line"></span><br><span class="line">for (GeoHash hash : adjacent) &#123; </span><br><span class="line">    System.out.println(hash.toBase32());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sql语句：</span><br><span class="line"></span><br><span class="line">SELECT id, name FROM customer WHERE geo_code IN (?, ?, ?, ?, ?, ?, ?, ?, ?);</span><br></pre></td></tr></table></figure>
@@ -311,12 +276,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2018/11/20/mysql/mysql-linux/" data-toggle="tooltip" data-placement="top" title="远程连接mysql">&larr; Previous Post</a>
+                            <a href="/2018/11/20/php/php-mysqli/" data-toggle="tooltip" data-placement="top" title="PHP使用mysqli的预处理方式crud">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2018/11/20/mysql/mysql-update/" data-toggle="tooltip" data-placement="top" title="mysql升级5.7">Next Post &rarr;</a>
+                            <a href="/2017/03/18/hexo-theme-beantech/hexo-theme-beantech/" data-toggle="tooltip" data-placement="top" title="[Hexo] Theme BeanTech">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
