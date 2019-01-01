@@ -7,8 +7,64 @@
     </url>
 
     <url>
-        <loc>http://yoursite-url/2018/11/20/mysql/mysql/</loc>
-        <lastmod>2019-01-01T05:06:53.090Z</lastmod>
+        <loc>http://yoursite-url/2018/11/20/php/php-mysqli/</loc>
+        <lastmod>2019-01-01T07:08:44.653Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2018/11/20/mysql/mysql-space-index/</loc>
+        <lastmod>2019-01-01T06:54:32.954Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2018/11/20/mysql/mysql-emoji/</loc>
+        <lastmod>2019-01-01T06:41:07.576Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2018/11/20/mysql/mysql-tip/</loc>
+        <lastmod>2019-01-01T06:36:40.362Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2018/11/20/server/server-tomcat/</loc>
+        <lastmod>2019-01-01T06:34:52.901Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2018/11/20/server/server-https/</loc>
+        <lastmod>2019-01-01T06:24:36.059Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2018/11/20/mysql/mysql-update/</loc>
+        <lastmod>2019-01-01T06:13:12.630Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2018/11/20/mysql/mysql-linux/</loc>
+        <lastmod>2019-01-01T06:07:00.565Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -17,14 +73,6 @@
     <url>
         <loc>http://yoursite-url/2018/12/20/fastadmin/fastadmin/</loc>
         <lastmod>2019-01-01T04:22:49.447Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite-url/2018/11/20/wxapp/wxapp/</loc>
-        <lastmod>2018-12-31T04:40:39.332Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -40,54 +88,6 @@
 
     <url>
         <loc>http://yoursite-url/2018/11/20/french/french1/</loc>
-        <lastmod>2018-11-25T06:57:14.434Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite-url/2018/11/20/apicloud/apicloud/</loc>
-        <lastmod>2018-11-25T06:57:14.434Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite-url/2018/11/20/frontend/front-html/</loc>
-        <lastmod>2018-11-25T06:57:14.434Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite-url/2018/11/20/frontend/frontend-css/</loc>
-        <lastmod>2018-11-25T06:57:14.434Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite-url/2018/11/20/frontend/frontend-js/</loc>
-        <lastmod>2018-11-25T06:57:14.434Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite-url/2018/11/20/server/server/</loc>
-        <lastmod>2018-11-25T06:57:14.434Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite-url/2018/11/20/php/php-mysqli/</loc>
         <lastmod>2018-11-25T06:57:14.434Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
