@@ -143,14 +143,14 @@
 
                         
                         <li>
-                            <a href="/about/">一个人，一本书</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">一个人，一本书</a>
                         </li>
                         
                     
@@ -213,52 +213,30 @@
 
 <div class="post-preview">
 
-    <a href="/2018/11/20/php/php-mysqli/">
+    <a href="/2018/11/20/mysql/mysql-space-index/">
         <h2 class="post-title">
-            PHP使用mysqli的预处理方式crud
+            mysql实现附加人、poi查找
         </h2>
         <h3 class="post-subtitle">
-            Trying to be an excellent crud boy :)
+            简单记录学习到的4种方法
         </h3>
         <div class="post-content-preview">
-            代码：以微信小程序用户登录为例
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748function doDb($nickname, $gender, $avatar, $openid, $session_key)&#123;    $mysql_conf = array......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Lin on
-            2018-11-20
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#php" title="php">php</a>
-            
-        </div>
-    
+            方案1：数据库+java共同处理
 
-</div>
-<hr>
+直接存储经纬度信息，查找时带着经纬度，按照公式查找指定范围内的数据
+想法最直接、实现也最容易，但是效率很低。
 
-<div class="post-preview">
+方案2：（数据库+java工具类处理）
 
-    <a href="/2018/11/20/mysql/mysql-linux/">
-        <h2 class="post-title">
-            远程连接mysql
-        </h2>
-        <h3 class="post-subtitle">
-            服务器：阿里云
-        </h3>
-        <div class="post-content-preview">
-            Linux上的mysql
-阿里云 + mysql
+区间查找
+使用到com.spatial4j
 
+com.spatial4j
+spatial4j
+0.5
 
-买了服务器后直接使用镜像市场，选择java环境，重置系统镜像（如：jdk + tomcat + mysql）
-云服务器远程连接：winscp
-云数据库远程连接：navicat、或者windows的cmd命令行
-首先设置云数据库白名单：IP白名单设置为0.0.0.0/0代表允许所有地址访问，设置为127.0.0.1代表禁止所有地址访问
-设置......
+具体思路：
+表中使用两个字段存储经度和纬度，提前计算出经纬度的范围，然后在这两个字段上加上索引，提高......
         </div>
     </a>
     
@@ -347,15 +325,9 @@ This BeanTech theme created by YuHsuan modified from the original Porter ......
     <div class="tags">
         
             
-            <a href="/tags/#français" title="français" rel="3">français</a>
-            
         
             
-            <a href="/tags/#Blog" title="Blog" rel="6">Blog</a>
-            
-        
-            
-        
+            <a href="/tags/#Blog" title="Blog" rel="5">Blog</a>
             
         
             
@@ -366,6 +338,12 @@ This BeanTech theme created by YuHsuan modified from the original Porter ......
             <a href="/tags/#mysql" title="mysql" rel="5">mysql</a>
             
         
+            
+        
+            
+        
+            
+            <a href="/tags/#français" title="français" rel="2">français</a>
             
         
     </div>
@@ -437,15 +415,15 @@ This BeanTech theme created by YuHsuan modified from the original Porter ......
         </li>
       
         <li>
-          <a href="/2018/11/25/french/fuck/">fuck</a>
-        </li>
-      
-        <li>
-          <a href="/2018/11/20/server/server-tomcat/">域名直接指向tomcat项目</a>
+          <a href="/2018/11/20/mysql/mysql-emoji/">mysql存储emoji表情</a>
         </li>
       
         <li>
           <a href="/2018/11/20/server/server-https/">Nginx配置https</a>
+        </li>
+      
+        <li>
+          <a href="/2018/11/20/php/php-mysqli/">PHP使用mysqli的预处理方式crud</a>
         </li>
       
     </ul>
@@ -474,7 +452,7 @@ This BeanTech theme created by YuHsuan modified from the original Porter ......
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li></ul>
     </div>
 
         <hr>

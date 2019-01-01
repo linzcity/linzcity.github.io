@@ -9,8 +9,22 @@
     </url>
 
     <url>
+        <loc>http://yoursite-url/tags/francais/</loc>
+        <lastmod>2018-11-25T08:09:28.908Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://yoursite-url/tags/Fastadmin/</loc>
         <lastmod>2019-01-01T04:22:49.447Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/tags/Blog/</loc>
+        <lastmod>2019-01-01T06:34:52.901Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -32,20 +46,6 @@
     <url>
         <loc>http://yoursite-url/tags/mysql/</loc>
         <lastmod>2019-01-01T07:28:32.225Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite-url/tags/francais/</loc>
-        <lastmod>2019-01-01T07:44:08.327Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite-url/tags/Blog/</loc>
-        <lastmod>2019-01-01T07:44:08.327Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

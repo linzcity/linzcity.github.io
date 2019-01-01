@@ -143,14 +143,14 @@
 
                         
                         <li>
-                            <a href="/about/">一个人，一本书</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">一个人，一本书</a>
                         </li>
                         
                     
@@ -249,9 +249,9 @@ fa_auth_rule：找到aute/rule
         </p>
         <div class="tags">
             
-              <a href="/tags/#Blog" title="Blog">Blog</a>
-            
               <a href="/tags/#Fastadmin" title="Fastadmin">Fastadmin</a>
+            
+              <a href="/tags/#Blog" title="Blog">Blog</a>
             
         </div>
     
@@ -282,9 +282,9 @@ fa_auth_rule：找到aute/rule
         </p>
         <div class="tags">
             
-              <a href="/tags/#français" title="français">français</a>
-            
               <a href="/tags/#Blog" title="Blog">Blog</a>
+            
+              <a href="/tags/#français" title="français">français</a>
             
         </div>
     
@@ -294,50 +294,21 @@ fa_auth_rule：找到aute/rule
 
 <div class="post-preview">
 
-    <a href="/2018/11/25/french/fuck/">
+    <a href="/2018/11/20/mysql/mysql-emoji/">
         <h2 class="post-title">
-            fuck
+            mysql存储emoji表情
         </h2>
         <h3 class="post-subtitle">
-            Salut
+            
         </h3>
         <div class="post-content-preview">
-            今日使用
-12comment ça va    =    how's it goingcomment 如何
-12345je regarde la télé avec mes parents regarde    v.看télé     n.televisionavec    adv. 和...一起、withmes     adj.我的
-1C'est quoi    =    what's i......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Lin on
-            2018-11-25
-        </p>
-        <div class="tags">
             
-              <a href="/tags/#français" title="français">français</a>
-            
-              <a href="/tags/#Blog" title="Blog">Blog</a>
-            
-        </div>
-    
+大概：mysql默认字符集为utf8，而utf8一个字符最多支持3个字节，但表情emoji占用4个字节，因此需要更改字符集为utf8mb4。
 
-</div>
-<hr>
 
-<div class="post-preview">
+windows下修改：
 
-    <a href="/2018/11/20/server/server-tomcat/">
-        <h2 class="post-title">
-            域名直接指向tomcat项目
-        </h2>
-        <h3 class="post-subtitle">
-            环境：Linux + mysql + java + Aapche
-        </h3>
-        <div class="post-content-preview">
-            123451.端口映射: 80到8080iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080如果服务器默认没开启80端口：在根目录下执行：/sbin/iptables -A INPUT -p udp --dport 58 -j ACCEPT
-相关文章：(值得一看)
-https://blog.csd......
+1234567891011121314151617181920步骤：1.修改my.ini    找到mysql安装目录(比如：programdata - mysql - my.ini)，权限问题，用管理员操作cmd，进入......
         </div>
     </a>
     
@@ -347,9 +318,9 @@ https://blog.csd......
         </p>
         <div class="tags">
             
-              <a href="/tags/#Blog" title="Blog">Blog</a>
-            
               <a href="/tags/#server" title="server">server</a>
+            
+              <a href="/tags/#mysql" title="mysql">mysql</a>
             
         </div>
     
@@ -402,21 +373,16 @@ nignx安装证书：重点
 
 <div class="post-preview">
 
-    <a href="/2018/11/20/mysql/mysql-emoji/">
+    <a href="/2018/11/20/php/php-mysqli/">
         <h2 class="post-title">
-            mysql存储emoji表情
+            PHP使用mysqli的预处理方式crud
         </h2>
         <h3 class="post-subtitle">
-            
+            Trying to be an excellent crud boy :)
         </h3>
         <div class="post-content-preview">
-            
-大概：mysql默认字符集为utf8，而utf8一个字符最多支持3个字节，但表情emoji占用4个字节，因此需要更改字符集为utf8mb4。
-
-
-windows下修改：
-
-1234567891011121314151617181920步骤：1.修改my.ini    找到mysql安装目录(比如：programdata - mysql - my.ini)，权限问题，用管理员操作cmd，进入......
+            代码：以微信小程序用户登录为例
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748function doDb($nickname, $gender, $avatar, $openid, $session_key)&#123;    $mysql_conf = array......
         </div>
     </a>
     
@@ -426,9 +392,7 @@ windows下修改：
         </p>
         <div class="tags">
             
-              <a href="/tags/#server" title="server">server</a>
-            
-              <a href="/tags/#mysql" title="mysql">mysql</a>
+              <a href="/tags/#php" title="php">php</a>
             
         </div>
     
@@ -438,17 +402,17 @@ windows下修改：
 
 <div class="post-preview">
 
-    <a href="/2018/11/20/french/french1/">
+    <a href="/2018/11/20/server/server-tomcat/">
         <h2 class="post-title">
-            “法语聊天用语01”
+            域名直接指向tomcat项目
         </h2>
         <h3 class="post-subtitle">
-            Salut
+            环境：Linux + mysql + java + Aapche
         </h3>
         <div class="post-content-preview">
-            今日使用
-123A partir d'aujourd'hui    =    from todaypartir vi. 从d'aujourd'hui 今天的
-123456De m&apos;apprendre le français     =    教我法语De 法语常用介词 来源、从……时候起、原因、所有等apprendre     vt. 学习、告诉m&apos;apprendre 教......
+            123451.端口映射: 80到8080iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080如果服务器默认没开启80端口：在根目录下执行：/sbin/iptables -A INPUT -p udp --dport 58 -j ACCEPT
+相关文章：(值得一看)
+https://blog.csd......
         </div>
     </a>
     
@@ -457,11 +421,11 @@ windows下修改：
             2018-11-20
         </p>
         <div class="tags">
-            
-              <a href="/tags/#français" title="français">français</a>
             
               <a href="/tags/#Blog" title="Blog">Blog</a>
             
+              <a href="/tags/#server" title="server">server</a>
+            
         </div>
     
 
@@ -470,30 +434,23 @@ windows下修改：
 
 <div class="post-preview">
 
-    <a href="/2018/11/20/mysql/mysql-space-index/">
+    <a href="/2018/11/20/mysql/mysql-linux/">
         <h2 class="post-title">
-            mysql实现附加人、poi查找
+            远程连接mysql
         </h2>
         <h3 class="post-subtitle">
-            简单记录学习到的4种方法
+            服务器：阿里云
         </h3>
         <div class="post-content-preview">
-            方案1：数据库+java共同处理
+            Linux上的mysql
+阿里云 + mysql
 
-直接存储经纬度信息，查找时带着经纬度，按照公式查找指定范围内的数据
-想法最直接、实现也最容易，但是效率很低。
 
-方案2：（数据库+java工具类处理）
-
-区间查找
-使用到com.spatial4j
-
-com.spatial4j
-spatial4j
-0.5
-
-具体思路：
-表中使用两个字段存储经度和纬度，提前计算出经纬度的范围，然后在这两个字段上加上索引，提高......
+买了服务器后直接使用镜像市场，选择java环境，重置系统镜像（如：jdk + tomcat + mysql）
+云服务器远程连接：winscp
+云数据库远程连接：navicat、或者windows的cmd命令行
+首先设置云数据库白名单：IP白名单设置为0.0.0.0/0代表允许所有地址访问，设置为127.0.0.1代表禁止所有地址访问
+设置......
         </div>
     </a>
     
@@ -586,6 +543,38 @@ spatial4j
 </div>
 <hr>
 
+<div class="post-preview">
+
+    <a href="/2018/11/20/french/french1/">
+        <h2 class="post-title">
+            “法语聊天用语01”
+        </h2>
+        <h3 class="post-subtitle">
+            Salut
+        </h3>
+        <div class="post-content-preview">
+            今日使用
+123A partir d'aujourd'hui    =    from todaypartir vi. 从d'aujourd'hui 今天的
+123456De m&apos;apprendre le français     =    教我法语De 法语常用介词 来源、从……时候起、原因、所有等apprendre     vt. 学习、告诉m&apos;apprendre 教......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Lin on
+            2018-11-20
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Blog" title="Blog">Blog</a>
+            
+              <a href="/tags/#français" title="français">français</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
 
 
 <!-- Pager -->
@@ -622,15 +611,9 @@ spatial4j
     <div class="tags">
         
             
-            <a href="/tags/#français" title="français" rel="3">français</a>
-            
         
             
-            <a href="/tags/#Blog" title="Blog" rel="6">Blog</a>
-            
-        
-            
-        
+            <a href="/tags/#Blog" title="Blog" rel="5">Blog</a>
             
         
             
@@ -641,6 +624,12 @@ spatial4j
             <a href="/tags/#mysql" title="mysql" rel="5">mysql</a>
             
         
+            
+        
+            
+        
+            
+            <a href="/tags/#français" title="français" rel="2">français</a>
             
         
     </div>
@@ -712,15 +701,15 @@ spatial4j
         </li>
       
         <li>
-          <a href="/2018/11/25/french/fuck/">fuck</a>
-        </li>
-      
-        <li>
-          <a href="/2018/11/20/server/server-tomcat/">域名直接指向tomcat项目</a>
+          <a href="/2018/11/20/mysql/mysql-emoji/">mysql存储emoji表情</a>
         </li>
       
         <li>
           <a href="/2018/11/20/server/server-https/">Nginx配置https</a>
+        </li>
+      
+        <li>
+          <a href="/2018/11/20/php/php-mysqli/">PHP使用mysqli的预处理方式crud</a>
         </li>
       
     </ul>
@@ -749,7 +738,7 @@ spatial4j
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li></ul>
     </div>
 
         <hr>
