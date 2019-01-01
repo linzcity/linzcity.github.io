@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          Nginx配置https - 我在看着你呢 | watch out your back
+          mysql实现附加人、poi查找 - 我在看着你呢 | watch out your back
         
     </title>
 
-    <link rel="canonical" href="http://yoursite-url/2018/11/11/server/server-https/">
+    <link rel="canonical" href="http://yoursite-url/2018/12/25/mysql/mysql-space-index/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -92,12 +92,14 @@
                             
                               <a class="tag" href="/tags/#server" title="server">server</a>
                             
+                              <a class="tag" href="/tags/#mysql" title="mysql">mysql</a>
+                            
                         </div>
-                        <h1>Nginx配置https</h1>
-                        <h2 class="subheading">简易流程</h2>
+                        <h1>mysql实现附加人、poi查找</h1>
+                        <h2 class="subheading">简单记录学习到的4种方法</h2>
                         <span class="meta">
                             Posted by Lin on
-                            2018-11-11
+                            2018-12-25
                         </span>
                     </div>
                 
@@ -214,27 +216,58 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <blockquote>
-<p>折腾了一晚上。事情经过是这样：</p>
-</blockquote>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span><span class="string">环境：lnmp</span></span><br><span class="line"><span class="number">2.</span><span class="string">安装https证书</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">制作证书教程：</span><br><span class="line">阿里云文档，此处略。查询官网</span><br></pre></td></tr></table></figure>
+                <h3 id="方案1数据库java共同处理">方案1：数据库+java共同处理</h3>
 <blockquote>
-<p>nignx安装证书：重点<br>
-<a href="https://help.aliyun.com/knowledge_detail/95491.html?spm=a2c4g.11186623.2.12.4aa434f1tZwBY4" target="_blank" rel="noopener">阿里云教程：</a></p>
+<p>直接存储经纬度信息，查找时带着经纬度，按照公式查找指定范围内的数据<br>
+想法最直接、实现也最容易，但是效率很低。</p>
 </blockquote>
-<h4 id="然后不行instertinggtlt"><font color="red">然后不行(insterting&gt;.&lt;)…</font></h4>
-<h3 id="填坑">填坑</h3>
+<h3 id="方案2数据库java工具类处理">方案2：（数据库+java工具类处理）</h3>
 <blockquote>
-<p>1.我的环境nignx安装目录和配置文件目录不在一起。（要用nginx安装目录）<br>
-按照教程证书装上去了…需要以下操作</p>
+<p>区间查找<br>
+使用到com.spatial4j<br>
+<dependency><br>
+<groupid>com.spatial4j</groupid><br>
+<artifactid>spatial4j</artifactid><br>
+<version>0.5</version><br>
+</dependency><br>
+具体思路：<br>
+表中使用两个字段存储经度和纬度，提前计算出经纬度的范围，然后在这两个字段上加上索引，提高搜索性能。<br>
+计算出经纬度的范围：已知条件是移动设备所在的经纬度，还有满足业务要求的半径，这很像初中的一道平面几何题：给定圆心坐标和半径，求该圆外切正方形四个顶点的坐标。而我们面对的是一个球体，公式较复杂，便可以使用spatial4j工具类来计算。</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">修改 nginx.conf</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen 443;</span><br><span class="line">    server_name localhost;</span><br><span class="line">    ssl on;</span><br><span class="line">    root html; //自行修改项目路径</span><br><span class="line">    index index.html index.htm;</span><br><span class="line">    ssl_certificate cert/a.pem;</span><br><span class="line">    ssl_certificate_key cert/a.key;</span><br><span class="line">    ssl_session_timeout 5m;</span><br><span class="line">    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;</span><br><span class="line">    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">    ssl_prefer_server_ciphers on;</span><br><span class="line">    location / &#123;</span><br><span class="line">        root html; //自行修改项目路径</span><br><span class="line">        index index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">还不行....处理方案：</span><br><span class="line"></span><br><span class="line">1. 阿里云443端口有没有开？</span><br><span class="line"></span><br><span class="line">2. 服务器防火墙443端口问题？</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">3. 最后是防火墙（果然是防火墙！！！）：</span><br><span class="line"></span><br><span class="line">开放防火墙端口</span><br><span class="line">添加需要监听的端口</span><br><span class="line">/sbin/iptables -I INPUT -p tcp --dport 443 -j ACCEPT</span><br><span class="line"></span><br><span class="line">保存设置</span><br><span class="line">/etc/init.d/iptables save</span><br><span class="line"></span><br><span class="line">查看状态</span><br><span class="line">/etc/init.d/iptables status</span><br><span class="line"></span><br><span class="line">临时关闭防火墙服务</span><br><span class="line">service iptables stop</span><br><span class="line"></span><br><span class="line">开启防火墙服务</span><br><span class="line">service iptables start</span><br><span class="line"></span><br><span class="line">开机不再启动防火墙服务</span><br><span class="line">chkconfig iptables off</span><br><span class="line"></span><br><span class="line">最后，非常重要：重启nginx</span><br><span class="line"></span><br><span class="line">restart后不生效？</span><br><span class="line">试试 start后stop</span><br><span class="line">有时就是这样造化弄人...</span><br></pre></td></tr></table></figure>
+<p><font color="red">示例代码：</font></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 移动设备经纬度 </span><br><span class="line">double lon = 116.312528, lat = 39.983733;</span><br><span class="line">// 千米 </span><br><span class="line">int radius = 1; </span><br><span class="line"></span><br><span class="line">SpatialContext geo = SpatialContext.GEO;</span><br><span class="line"></span><br><span class="line">Rectangle rectangle = geo.getDistCalc().calcBoxByDistFromPt( </span><br><span class="line">geo.makePoint(lon, lat), radius * DistanceUtils.KM_TO_DEG, geo, null);</span><br><span class="line"></span><br><span class="line">System.out.println(rectangle.getMinX() + &quot;-&quot; + rectangle.getMaxX());// 经度范围</span><br><span class="line">System.out.println(rectangle.getMinY() + &quot;-&quot; + rectangle.getMaxY());// 纬度范围</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>ok，好了…等会…还不行，php项目出问题？在上面的server{}中补上这个 --&gt;</p>
+<p>这样使用sql语句查询时：<br>
+SELECT id, name FROM customer WHERE (lon BETWEEN ? AND ?) AND (lat BETWEEN ? AND ?);<br>
+给lon、lat添加索引：<br>
+INDEX <code>idx_lon_lat</code> (<code>lon</code>, <code>lat</code>)</p>
 </blockquote>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">location</span> <span class="string">~</span> <span class="string">\.php(.*)$</span> <span class="string">&#123;</span></span><br><span class="line">        <span class="string">fastcgi_pass</span>   <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:9000;</span></span><br><span class="line">            <span class="string">fastcgi_split_path_info</span>  <span class="string">^((?U).+\.php)(/?.+)$;</span></span><br><span class="line">            <span class="string">fastcgi_param</span>  <span class="string">SCRIPT_FILENAME</span>   <span class="string">$document_root$fastcgi_script_name;</span></span><br><span class="line">            <span class="string">fastcgi_param</span>  <span class="string">PATH_INFO</span>  <span class="string">$fastcgi_path_info;</span></span><br><span class="line">            <span class="string">fastcgi_param</span>  <span class="string">PATH_TRANSLATED</span>   <span class="string">$document_root$fastcgi_path_info;</span></span><br><span class="line">            <span class="string">include</span>        <span class="string">fastcgi_params;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">变成这样：</span></span><br><span class="line"><span class="string">server</span> <span class="string">&#123;</span></span><br><span class="line">    <span class="string">listen</span> <span class="number">443</span><span class="string">;</span></span><br><span class="line">    <span class="string">server_name</span> <span class="string">localhost;</span></span><br><span class="line">    <span class="string">ssl</span> <span class="string">on;</span></span><br><span class="line">    <span class="string">root</span> <span class="string">html;</span> <span class="string">//自行修改项目路径</span></span><br><span class="line">    <span class="string">index</span> <span class="string">index.html</span> <span class="string">index.htm;</span></span><br><span class="line">    <span class="string">ssl_certificate</span> <span class="string">cert/a.pem;</span></span><br><span class="line">    <span class="string">ssl_certificate_key</span> <span class="string">cert/a.key;</span></span><br><span class="line">    <span class="string">ssl_session_timeout</span> <span class="number">5</span><span class="string">m;</span></span><br><span class="line">    <span class="string">ssl_ciphers</span> <span class="attr">ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;</span></span><br><span class="line">    <span class="string">ssl_protocols</span> <span class="string">TLSv1</span> <span class="string">TLSv1.1</span> <span class="string">TLSv1.2;</span></span><br><span class="line">    <span class="string">ssl_prefer_server_ciphers</span> <span class="string">on;</span></span><br><span class="line">    <span class="string">location</span> <span class="string">/</span> <span class="string">&#123;</span></span><br><span class="line">        <span class="string">root</span> <span class="string">html;</span> <span class="string">//自行修改项目路径</span></span><br><span class="line">        <span class="string">index</span> <span class="string">index.html</span> <span class="string">index.htm;</span></span><br><span class="line">    <span class="string">&#125;</span></span><br><span class="line">    </span><br><span class="line">    <span class="string">location</span> <span class="string">~</span> <span class="string">\.php(.*)$</span> <span class="string">&#123;</span></span><br><span class="line">        <span class="string">fastcgi_pass</span>   <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:9000;</span></span><br><span class="line">        <span class="string">fastcgi_split_path_info</span>  <span class="string">^((?U).+\.php)(/?.+)$;</span></span><br><span class="line">        <span class="string">fastcgi_param</span>  <span class="string">SCRIPT_FILENAME</span>   <span class="string">$document_root$fastcgi_script_name;</span></span><br><span class="line">        <span class="string">fastcgi_param</span>  <span class="string">PATH_INFO</span>  <span class="string">$fastcgi_path_info;</span></span><br><span class="line">        <span class="string">fastcgi_param</span>  <span class="string">PATH_TRANSLATED</span>   <span class="string">$document_root$fastcgi_path_info;</span></span><br><span class="line">        <span class="string">include</span>        <span class="string">fastcgi_params;</span></span><br><span class="line">    <span class="string">&#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="方案3同样使用和2相同的工具类不一样的原理geohash">方案3：同样使用和2相同的工具类，不一样的原理：geohash</h3>
+<blockquote>
+<p>原理较复杂，大概就是：geohash算法把二维的经纬度编码成一维的字符串，它的特点是越相近的经纬度编码后越相似，所以可以通过前缀like的方式去匹配周围的商户<br>
+故数据库增加一个字段geo_code，来存储每个商户的geohash编码，并且建立索引<br>
+经纬度转为geohash编码<br>
+spatial4j提供了一个工具类GeohashUtils.encodeLatLon(lat, lon)，默认精度是12位，网上有geo_code长度与距离对照表。一般为5或6<br>
+sql语句：<br>
+SELECT id, name FROM customer WHERE geo_code LIKE CONCAT(?, ‘%’);<br>
+setString(1,geo_code)<br>
+研究一下geohash后容易发现，有一个很特殊但不得不面对的：边缘问题&gt; geohash最终是在地图上铺上了一个网格，共9个，每一个网格代表一个geohash值，当传入的坐标接近当前网格的边界时，用上面的搜索方式就会丢失它附近的数据<br>
+解决方案：<br>
+我们查询时，除了使用当前位置的geohash编码进行匹配外，还使用周围8个网格的geohash编码，这样可以避免这个问题。<br>
+计算周围8个网格的geohash：使用geohash-java。<br>
+<dependency><br>
+<groupid>ch.hsr</groupid><br>
+<artifactid>geohash</artifactid><br>
+<version>1.3.0</version><br>
+</dependency></p>
+</blockquote>
+<p><font color="red">代码:</font></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 移动设备经纬度 </span><br><span class="line">double lon = 116.312528, lat = 39.983733;</span><br><span class="line"></span><br><span class="line">GeoHash geoHash = GeoHash.withCharacterPrecision(lat, lon, 10);</span><br><span class="line"></span><br><span class="line">// 当前 </span><br><span class="line">System.out.println(geoHash.toBase32());</span><br><span class="line">// N, NE, E, SE, S, SW, W, NW </span><br><span class="line"></span><br><span class="line">GeoHash[] adjacent = geoHash.getAdjacent();</span><br><span class="line"></span><br><span class="line">for (GeoHash hash : adjacent) &#123; </span><br><span class="line">    System.out.println(hash.toBase32());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sql语句：</span><br><span class="line"></span><br><span class="line">SELECT id, name FROM customer WHERE geo_code IN (?, ?, ?, ?, ?, ?, ?, ?, ?);</span><br></pre></td></tr></table></figure>
+<h3 id="方案4不再需要代码端工具类配合直接利用mysql自带字段geometry推荐但mysql版本需要57简略升级流程见另一篇博文">方案4：不再需要代码端工具类配合，直接利用mysql自带字段geometry（推荐，但mysql版本需要5.7，简略升级流程见另一篇博文）</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">字段类型：geometry</span><br><span class="line">字段名：point</span><br><span class="line">内容：point(lon lat) 如：point(113.223 23.222) 中间空格隔开</span><br><span class="line"></span><br><span class="line">sql插入：相应字段要使用函数：gromfromtext(?)</span><br><span class="line">setString(1,point)</span><br><span class="line"></span><br><span class="line">sql查询：</span><br><span class="line">SELECT</span><br><span class="line">    username,</span><br><span class="line">    FLOOR(ST_DISTANCE_SPHERE (ST_geomfromtext (&apos;POINT(113.881144890506 22.9090937577334)&apos;),point)) point</span><br><span class="line">FROM</span><br><span class="line">    USERS_TABLE </span><br><span class="line">WHERE</span><br><span class="line">    ST_DISTANCE_SPHERE (ST_geomfromtext (&apos;POINT(113.881144890506 22.9090937577334)&apos;),point) &lt; 2000</span><br><span class="line"></span><br><span class="line">查找在位于用户当前位置2000m之内的所有用户的名字、距离</span><br><span class="line"></span><br><span class="line">内部原理：猜想应该也是利用geohash</span><br></pre></td></tr></table></figure>
+<h4 id="参考文章">参考文章：</h4>
+<p><a href="https://blog.csdn.net/ghsau/article/details/50591932" target="_blank" rel="noopener">https://blog.csdn.net/ghsau/article/details/50591932</a><br>
+<a href="http://www.cnblogs.com/LBSer/p/3310455.html" target="_blank" rel="noopener">geohash原理：</a></p>
 
                 
 
@@ -243,12 +276,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2018/11/11/server/server-tomcat/" data-toggle="tooltip" data-placement="top" title="域名直接指向tomcat项目">&larr; Previous Post</a>
+                            <a href="/2018/12/31/fastadmin/fastadmin/" data-toggle="tooltip" data-placement="top" title="Fastadmin">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2018/07/14/hexo-theme-beantech/hexo-theme-beantech/" data-toggle="tooltip" data-placement="top" title="[Hexo] Theme BeanTech">Next Post &rarr;</a>
+                            <a href="/2018/11/25/french/french2/" data-toggle="tooltip" data-placement="top" title="“法语聊天用语02”">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -278,9 +311,9 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#然后不行instertinggtlt"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">然后不行(insterting&gt;.&lt;)…</span></a></li></ol><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#填坑"><span class="toc-nav-number"></span> <span class="toc-nav-text">填坑</span></a>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#方案1数据库java共同处理"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">方案1：数据库+java共同处理</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#方案2数据库java工具类处理"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">方案2：（数据库+java工具类处理）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#方案3同样使用和2相同的工具类不一样的原理geohash"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">方案3：同样使用和2相同的工具类，不一样的原理：geohash</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#方案4不再需要代码端工具类配合直接利用mysql自带字段geometry推荐但mysql版本需要57简略升级流程见另一篇博文"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">方案4：不再需要代码端工具类配合，直接利用mysql自带字段geometry（推荐，但mysql版本需要5.7，简略升级流程见另一篇博文）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#参考文章"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">参考文章：</span></a></li></ol></li></ol>
         
-        </li></div>
+        </div>
       </aside>
     
 
@@ -299,6 +332,8 @@
                     <div class="tags">
                        
                           <a class="tag" href="/tags/#server" title="server">server</a>
+                        
+                          <a class="tag" href="/tags/#mysql" title="mysql">mysql</a>
                         
                     </div>
                 </section>
@@ -333,8 +368,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "your-disqus-ID";
-    var disqus_identifier = "http://yoursite-url/2018/11/11/server/server-https/";
-    var disqus_url = "http://yoursite-url/2018/11/11/server/server-https/";
+    var disqus_identifier = "http://yoursite-url/2018/12/25/mysql/mysql-space-index/";
+    var disqus_url = "http://yoursite-url/2018/12/25/mysql/mysql-space-index/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

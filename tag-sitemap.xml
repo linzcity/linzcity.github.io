@@ -2,22 +2,8 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>http://yoursite-url/tags/francais/</loc>
-        <lastmod>2018-11-25T08:09:28.908Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite-url/tags/Fastadmin/</loc>
         <lastmod>2019-01-01T08:44:11.010Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite-url/tags/mysql/</loc>
-        <lastmod>2019-01-01T08:45:11.219Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -30,22 +16,36 @@
     </url>
 
     <url>
-        <loc>http://yoursite-url/tags/server/</loc>
-        <lastmod>2019-01-01T08:46:26.659Z</lastmod>
+        <loc>http://yoursite-url/tags/Hexo/</loc>
+        <lastmod>2019-01-01T08:46:55.366Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://yoursite-url/tags/Blog/</loc>
-        <lastmod>2019-01-01T08:46:55.366Z</lastmod>
+        <lastmod>2019-01-01T08:49:53.462Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite-url/tags/Hexo/</loc>
-        <lastmod>2019-01-01T08:46:55.366Z</lastmod>
+        <loc>http://yoursite-url/tags/francais/</loc>
+        <lastmod>2019-01-01T08:49:53.462Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/tags/server/</loc>
+        <lastmod>2019-01-01T08:50:18.557Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/tags/mysql/</loc>
+        <lastmod>2019-01-01T08:50:18.557Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

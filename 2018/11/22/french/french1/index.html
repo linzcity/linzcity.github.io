@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          Nginx配置https - 我在看着你呢 | watch out your back
+          “法语聊天用语01” - 我在看着你呢 | watch out your back
         
     </title>
 
-    <link rel="canonical" href="http://yoursite-url/2018/11/11/server/server-https/">
+    <link rel="canonical" href="http://yoursite-url/2018/11/22/french/french1/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -90,14 +90,16 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#server" title="server">server</a>
+                              <a class="tag" href="/tags/#Blog" title="Blog">Blog</a>
+                            
+                              <a class="tag" href="/tags/#français" title="français">français</a>
                             
                         </div>
-                        <h1>Nginx配置https</h1>
-                        <h2 class="subheading">简易流程</h2>
+                        <h1>“法语聊天用语01”</h1>
+                        <h2 class="subheading">Salut</h2>
                         <span class="meta">
                             Posted by Lin on
-                            2018-11-11
+                            2018-11-22
                         </span>
                     </div>
                 
@@ -214,27 +216,20 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <blockquote>
-<p>折腾了一晚上。事情经过是这样：</p>
-</blockquote>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span><span class="string">环境：lnmp</span></span><br><span class="line"><span class="number">2.</span><span class="string">安装https证书</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">制作证书教程：</span><br><span class="line">阿里云文档，此处略。查询官网</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>nignx安装证书：重点<br>
-<a href="https://help.aliyun.com/knowledge_detail/95491.html?spm=a2c4g.11186623.2.12.4aa434f1tZwBY4" target="_blank" rel="noopener">阿里云教程：</a></p>
-</blockquote>
-<h4 id="然后不行instertinggtlt"><font color="red">然后不行(insterting&gt;.&lt;)…</font></h4>
-<h3 id="填坑">填坑</h3>
-<blockquote>
-<p>1.我的环境nignx安装目录和配置文件目录不在一起。（要用nginx安装目录）<br>
-按照教程证书装上去了…需要以下操作</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">修改 nginx.conf</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen 443;</span><br><span class="line">    server_name localhost;</span><br><span class="line">    ssl on;</span><br><span class="line">    root html; //自行修改项目路径</span><br><span class="line">    index index.html index.htm;</span><br><span class="line">    ssl_certificate cert/a.pem;</span><br><span class="line">    ssl_certificate_key cert/a.key;</span><br><span class="line">    ssl_session_timeout 5m;</span><br><span class="line">    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;</span><br><span class="line">    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">    ssl_prefer_server_ciphers on;</span><br><span class="line">    location / &#123;</span><br><span class="line">        root html; //自行修改项目路径</span><br><span class="line">        index index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">还不行....处理方案：</span><br><span class="line"></span><br><span class="line">1. 阿里云443端口有没有开？</span><br><span class="line"></span><br><span class="line">2. 服务器防火墙443端口问题？</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">3. 最后是防火墙（果然是防火墙！！！）：</span><br><span class="line"></span><br><span class="line">开放防火墙端口</span><br><span class="line">添加需要监听的端口</span><br><span class="line">/sbin/iptables -I INPUT -p tcp --dport 443 -j ACCEPT</span><br><span class="line"></span><br><span class="line">保存设置</span><br><span class="line">/etc/init.d/iptables save</span><br><span class="line"></span><br><span class="line">查看状态</span><br><span class="line">/etc/init.d/iptables status</span><br><span class="line"></span><br><span class="line">临时关闭防火墙服务</span><br><span class="line">service iptables stop</span><br><span class="line"></span><br><span class="line">开启防火墙服务</span><br><span class="line">service iptables start</span><br><span class="line"></span><br><span class="line">开机不再启动防火墙服务</span><br><span class="line">chkconfig iptables off</span><br><span class="line"></span><br><span class="line">最后，非常重要：重启nginx</span><br><span class="line"></span><br><span class="line">restart后不生效？</span><br><span class="line">试试 start后stop</span><br><span class="line">有时就是这样造化弄人...</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>ok，好了…等会…还不行，php项目出问题？在上面的server{}中补上这个 --&gt;</p>
-</blockquote>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">location</span> <span class="string">~</span> <span class="string">\.php(.*)$</span> <span class="string">&#123;</span></span><br><span class="line">        <span class="string">fastcgi_pass</span>   <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:9000;</span></span><br><span class="line">            <span class="string">fastcgi_split_path_info</span>  <span class="string">^((?U).+\.php)(/?.+)$;</span></span><br><span class="line">            <span class="string">fastcgi_param</span>  <span class="string">SCRIPT_FILENAME</span>   <span class="string">$document_root$fastcgi_script_name;</span></span><br><span class="line">            <span class="string">fastcgi_param</span>  <span class="string">PATH_INFO</span>  <span class="string">$fastcgi_path_info;</span></span><br><span class="line">            <span class="string">fastcgi_param</span>  <span class="string">PATH_TRANSLATED</span>   <span class="string">$document_root$fastcgi_path_info;</span></span><br><span class="line">            <span class="string">include</span>        <span class="string">fastcgi_params;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">变成这样：</span></span><br><span class="line"><span class="string">server</span> <span class="string">&#123;</span></span><br><span class="line">    <span class="string">listen</span> <span class="number">443</span><span class="string">;</span></span><br><span class="line">    <span class="string">server_name</span> <span class="string">localhost;</span></span><br><span class="line">    <span class="string">ssl</span> <span class="string">on;</span></span><br><span class="line">    <span class="string">root</span> <span class="string">html;</span> <span class="string">//自行修改项目路径</span></span><br><span class="line">    <span class="string">index</span> <span class="string">index.html</span> <span class="string">index.htm;</span></span><br><span class="line">    <span class="string">ssl_certificate</span> <span class="string">cert/a.pem;</span></span><br><span class="line">    <span class="string">ssl_certificate_key</span> <span class="string">cert/a.key;</span></span><br><span class="line">    <span class="string">ssl_session_timeout</span> <span class="number">5</span><span class="string">m;</span></span><br><span class="line">    <span class="string">ssl_ciphers</span> <span class="attr">ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;</span></span><br><span class="line">    <span class="string">ssl_protocols</span> <span class="string">TLSv1</span> <span class="string">TLSv1.1</span> <span class="string">TLSv1.2;</span></span><br><span class="line">    <span class="string">ssl_prefer_server_ciphers</span> <span class="string">on;</span></span><br><span class="line">    <span class="string">location</span> <span class="string">/</span> <span class="string">&#123;</span></span><br><span class="line">        <span class="string">root</span> <span class="string">html;</span> <span class="string">//自行修改项目路径</span></span><br><span class="line">        <span class="string">index</span> <span class="string">index.html</span> <span class="string">index.htm;</span></span><br><span class="line">    <span class="string">&#125;</span></span><br><span class="line">    </span><br><span class="line">    <span class="string">location</span> <span class="string">~</span> <span class="string">\.php(.*)$</span> <span class="string">&#123;</span></span><br><span class="line">        <span class="string">fastcgi_pass</span>   <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:9000;</span></span><br><span class="line">        <span class="string">fastcgi_split_path_info</span>  <span class="string">^((?U).+\.php)(/?.+)$;</span></span><br><span class="line">        <span class="string">fastcgi_param</span>  <span class="string">SCRIPT_FILENAME</span>   <span class="string">$document_root$fastcgi_script_name;</span></span><br><span class="line">        <span class="string">fastcgi_param</span>  <span class="string">PATH_INFO</span>  <span class="string">$fastcgi_path_info;</span></span><br><span class="line">        <span class="string">fastcgi_param</span>  <span class="string">PATH_TRANSLATED</span>   <span class="string">$document_root$fastcgi_path_info;</span></span><br><span class="line">        <span class="string">include</span>        <span class="string">fastcgi_params;</span></span><br><span class="line">    <span class="string">&#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+                <h3 id="今日使用">今日使用</h3>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">A</span> <span class="string">partir</span> <span class="string">d'aujourd'hui</span>    <span class="string">=</span>    <span class="string">from</span> <span class="string">today</span></span><br><span class="line"><span class="string">partir</span> <span class="string">vi.</span> <span class="string">从</span></span><br><span class="line"><span class="string">d'aujourd'hui</span> <span class="string">今天的</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">De m&apos;apprendre le français     =    教我法语</span><br><span class="line">De 法语常用介词 来源、从……时候起、原因、所有等</span><br><span class="line">apprendre     vt. 学习、告诉</span><br><span class="line">m&apos;apprendre 教我</span><br><span class="line">le 定冠词，阳性定冠词(la为阴性定冠词) 用在表示总体概念的名词前</span><br><span class="line">le、la 在元音或哑音h开头的词前省略为 l&apos;</span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">Non</span> <span class="string">不是、没有</span></span><br><span class="line"><span class="string">si</span> <span class="string">如果、不</span></span><br><span class="line"><span class="string">merci</span></span><br><span class="line"><span class="string">devine</span> <span class="string">猜猜看</span></span><br><span class="line"><span class="string">pourquoi</span> <span class="string">为什么</span></span><br><span class="line"><span class="string">Coucou</span> <span class="string">(Ca</span> <span class="string">veut</span> <span class="string">dire</span> <span class="string">salut)</span> </span><br><span class="line"><span class="string">veut</span> <span class="string">自称</span> <span class="string">dire</span> <span class="string">被说成</span> </span><br><span class="line"><span class="string">ca</span> <span class="string">veut</span> <span class="string">dire</span> <span class="string">这意味着</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">qu&apos;est-ce que tu fais    你在做什么</span><br><span class="line">qu&apos;est-ce que 什么是</span><br><span class="line">fais     vt. 做</span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">j'écoute</span>  <span class="string">de</span> <span class="string">la</span> <span class="string">musique</span>    <span class="string">我在听音乐</span></span><br><span class="line"><span class="string">écoute</span>  <span class="string">听</span></span><br><span class="line"><span class="string">j'écoute</span> <span class="string">我在听</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">je suis prêt à aller à la bibliothèque	我准备去图书馆</span><br><span class="line">prêt 准备好</span><br><span class="line">à 到...、向...</span><br><span class="line">aller 行</span><br><span class="line">à aller à 去</span><br><span class="line">bibliothèque 图书馆</span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">d'accord,tu</span> <span class="string">aimes</span> <span class="string">lire</span> <span class="string">?</span>     <span class="string">好的你喜欢读书吗？</span></span><br><span class="line"><span class="string">d'accord</span> <span class="string">好的</span></span><br><span class="line"><span class="string">aimes</span> <span class="string">喜欢</span></span><br><span class="line"><span class="string">lire</span> <span class="string">阅读</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">j&apos;aime pas,je sais pas pourquoi 我不喜欢，我不知道为什么</span><br><span class="line">aime 爱</span><br><span class="line">pas 不</span><br><span class="line">sais 知道</span><br><span class="line">je ne sais pas = je sais pas (ne 不)</span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">je</span> <span class="string">comprends</span> <span class="string">我明白</span></span><br><span class="line"><span class="string">comprends</span>    <span class="string">vt.了解、包含、由...组成</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">au revoir </span><br><span class="line">au  a le 缩写</span><br><span class="line">revoir 再见</span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">Déjà</span>      <span class="string">已经</span></span><br><span class="line"><span class="string">就要了吗？</span> <span class="string">就要走了吗？</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">je vais dormir</span><br><span class="line">vais     v. 去、走</span><br><span class="line">dormir     vi.睡觉</span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">je</span> <span class="string">ne</span> <span class="string">le</span> <span class="string">trouve</span> <span class="string">pas</span> <span class="string">dans</span> <span class="string">le</span> <span class="string">dictionnaire</span></span><br><span class="line"><span class="string">trouve</span>	<span class="string">vt.发现</span></span><br><span class="line"><span class="string">dans</span>	<span class="string">在...里</span></span><br><span class="line"><span class="string">dictionnaire</span> <span class="string">字典</span></span><br></pre></td></tr></table></figure>
 
                 
 
@@ -243,12 +238,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2018/11/11/server/server-tomcat/" data-toggle="tooltip" data-placement="top" title="域名直接指向tomcat项目">&larr; Previous Post</a>
+                            <a href="/2018/11/25/french/french2/" data-toggle="tooltip" data-placement="top" title="“法语聊天用语02”">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2018/07/14/hexo-theme-beantech/hexo-theme-beantech/" data-toggle="tooltip" data-placement="top" title="[Hexo] Theme BeanTech">Next Post &rarr;</a>
+                            <a href="/2018/11/20/mysql/mysql-emoji/" data-toggle="tooltip" data-placement="top" title="mysql存储emoji表情">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -278,9 +273,9 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#然后不行instertinggtlt"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">然后不行(insterting&gt;.&lt;)…</span></a></li></ol><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#填坑"><span class="toc-nav-number"></span> <span class="toc-nav-text">填坑</span></a>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#今日使用"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">今日使用</span></a></li></ol>
         
-        </li></div>
+        </div>
       </aside>
     
 
@@ -298,7 +293,9 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#server" title="server">server</a>
+                          <a class="tag" href="/tags/#Blog" title="Blog">Blog</a>
+                        
+                          <a class="tag" href="/tags/#français" title="français">français</a>
                         
                     </div>
                 </section>
@@ -333,8 +330,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "your-disqus-ID";
-    var disqus_identifier = "http://yoursite-url/2018/11/11/server/server-https/";
-    var disqus_url = "http://yoursite-url/2018/11/11/server/server-https/";
+    var disqus_identifier = "http://yoursite-url/2018/11/22/french/french1/";
+    var disqus_url = "http://yoursite-url/2018/11/22/french/french1/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
