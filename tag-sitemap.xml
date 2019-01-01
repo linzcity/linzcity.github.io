@@ -2,13 +2,6 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>http://yoursite-url/tags/Hexo/</loc>
-        <lastmod>2018-11-20T13:12:31.803Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite-url/tags/francais/</loc>
         <lastmod>2018-11-25T08:09:28.908Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -17,35 +10,42 @@
 
     <url>
         <loc>http://yoursite-url/tags/Fastadmin/</loc>
-        <lastmod>2019-01-01T04:22:49.447Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite-url/tags/Blog/</loc>
-        <lastmod>2019-01-01T06:34:52.901Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite-url/tags/php/</loc>
-        <lastmod>2019-01-01T07:08:44.653Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite-url/tags/server/</loc>
-        <lastmod>2019-01-01T07:28:32.225Z</lastmod>
+        <lastmod>2019-01-01T08:44:11.010Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://yoursite-url/tags/mysql/</loc>
-        <lastmod>2019-01-01T07:28:32.225Z</lastmod>
+        <lastmod>2019-01-01T08:45:11.219Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/tags/php/</loc>
+        <lastmod>2019-01-01T08:45:42.195Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/tags/server/</loc>
+        <lastmod>2019-01-01T08:46:26.659Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/tags/Blog/</loc>
+        <lastmod>2019-01-01T08:46:55.366Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/tags/Hexo/</loc>
+        <lastmod>2019-01-01T08:46:55.366Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

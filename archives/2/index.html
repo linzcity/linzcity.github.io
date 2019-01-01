@@ -136,7 +136,7 @@
 
                         
                         <li>
-                            <a href="/about/">一个人，一本书</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -150,7 +150,7 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">一个人，一本书</a>
                         </li>
                         
                     
@@ -213,27 +213,38 @@
 
 <div class="post-preview">
 
-    <a href="/2018/11/20/server/server-tomcat/">
+    <a href="/2018/11/11/server/server-https/">
         <h2 class="post-title">
-            域名直接指向tomcat项目
+            Nginx配置https
         </h2>
         <h3 class="post-subtitle">
-            环境：Linux + mysql + java + Aapche
+            简易流程
         </h3>
         <div class="post-content-preview">
-            123451.端口映射: 80到8080iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080如果服务器默认没开启80端口：在根目录下执行：/sbin/iptables -A INPUT -p udp --dport 58 -j ACCEPT
-相关文章：(值得一看)
-https://blog.csd......
+            
+折腾了一晚上。事情经过是这样：
+
+121.环境：lnmp2.安装https证书
+12制作证书教程：阿里云文档，此处略。查询官网
+
+nignx安装证书：重点
+阿里云教程：
+
+然后不行(insterting&gt;.&lt;)…
+填坑
+
+1.我的环境nignx安装目录和配置文件目录不在一起。（要用nginx安装目录）
+按照教程证书装上去了…需要以下操作
+
+1234567891011121314......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Lin on
-            2018-11-20
+            2018-11-11
         </p>
         <div class="tags">
-            
-              <a href="/tags/#Blog" title="Blog">Blog</a>
             
               <a href="/tags/#server" title="server">server</a>
             
@@ -245,7 +256,7 @@ https://blog.csd......
 
 <div class="post-preview">
 
-    <a href="/2017/03/18/hexo-theme-beantech/hexo-theme-beantech/">
+    <a href="/2018/07/14/hexo-theme-beantech/hexo-theme-beantech/">
         <h2 class="post-title">
             [Hexo] Theme BeanTech
         </h2>
@@ -262,7 +273,7 @@ This BeanTech theme created by YuHsuan modified from the original Porter ......
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Yu Hsuan Yen on
-            2017-03-18
+            2018-07-14
         </p>
         <div class="tags">
             
@@ -312,13 +323,13 @@ This BeanTech theme created by YuHsuan modified from the original Porter ......
     <div class="tags">
         
             
-            <a href="/tags/#français" title="français" rel="2">français</a>
-            
         
             
             <a href="/tags/#Blog" title="Blog" rel="5">Blog</a>
             
         
+            
+            <a href="/tags/#français" title="français" rel="2">français</a>
             
         
             
@@ -394,7 +405,11 @@ This BeanTech theme created by YuHsuan modified from the original Porter ......
     <ul>
       
         <li>
-          <a href="/2018/12/20/fastadmin/fastadmin/">Fastadmin</a>
+          <a href="/2019/01/01/php/php-mysqli/">PHP使用mysqli的预处理方式crud</a>
+        </li>
+      
+        <li>
+          <a href="/2018/12/31/fastadmin/fastadmin/">Fastadmin</a>
         </li>
       
         <li>
@@ -406,11 +421,7 @@ This BeanTech theme created by YuHsuan modified from the original Porter ......
         </li>
       
         <li>
-          <a href="/2018/11/20/server/server-https/">Nginx配置https</a>
-        </li>
-      
-        <li>
-          <a href="/2018/11/20/mysql/mysql-emoji/">mysql存储emoji表情</a>
+          <a href="/2018/11/20/french/french1/">“法语聊天用语01”</a>
         </li>
       
     </ul>
@@ -439,7 +450,7 @@ This BeanTech theme created by YuHsuan modified from the original Porter ......
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li></ul>
     </div>
 
         <hr>

@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          远程连接mysql - 我在看着你呢 | watch out your back
+          Fastadmin - 我在看着你呢 | watch out your back
         
     </title>
 
-    <link rel="canonical" href="http://yoursite-url/2018/11/20/mysql/mysql-linux/">
+    <link rel="canonical" href="http://yoursite-url/2018/12/31/fastadmin/fastadmin/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -90,16 +90,16 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#server" title="server">server</a>
+                              <a class="tag" href="/tags/#Fastadmin" title="Fastadmin">Fastadmin</a>
                             
-                              <a class="tag" href="/tags/#mysql" title="mysql">mysql</a>
+                              <a class="tag" href="/tags/#Blog" title="Blog">Blog</a>
                             
                         </div>
-                        <h1>远程连接mysql</h1>
-                        <h2 class="subheading">服务器：阿里云</h2>
+                        <h1>Fastadmin</h1>
+                        <h2 class="subheading">“Fastadmin使用技巧”</h2>
                         <span class="meta">
                             Posted by Lin on
-                            2018-11-20
+                            2018-12-31
                         </span>
                     </div>
                 
@@ -216,50 +216,58 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="linux上的mysql">Linux上的mysql</h1>
-<h3 id="阿里云-mysql">阿里云 + mysql</h3>
-<blockquote>
+                <h3 id="安装和说明文档">安装和说明文档</h3>
+<p><strong>参考官网</strong> ：<a href="https://doc.fastadmin.net/docs/index.html" target="_blank" rel="noopener">Fastadmin官网</a></p>
+<h3 id="自定义-菜单">自定义-菜单</h3>
 <ol>
-<li>买了服务器后直接使用镜像市场，选择java环境，重置系统镜像（如：jdk + tomcat + mysql）</li>
-<li>云服务器远程连接：winscp</li>
-<li>云数据库远程连接：navicat、或者windows的cmd命令行</li>
-<li>首先设置云数据库白名单：IP白名单设置为0.0.0.0/0代表允许所有地址访问，设置为127.0.0.1代表禁止所有地址访问</li>
-<li>设置0.0.0.0/0很危险：只设置某台机器本地远程连接的话，cmd命令查询到的ip有问题。</li>
+<li>
+<p>首先通过 权限管理–菜单规则 关闭不需要的菜单</p>
+</li>
+<li>
+<p>也可通过数据库关闭菜单，如：“权限管理”这个菜单<br>
+fa_auth_rule:找到name为auth的列，ismenu改为0<br>
+<font color="red">菜单具体规则即name可在前台权限管理中看到</font></p>
+</li>
+<li>
+<p>菜单规则：<br>
+fa_auth_rule：找到aute/rule</p>
+</li>
 </ol>
-</blockquote>
-<h4 id="安全远程连接云数据库mysql阿里云官网方案"><font color="red">安全远程连接云数据库mysql：阿里云官网方案</font></h4>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RDS连接:地址其实就是云数据库外网地址：如 hxxx.mysql.rds.aliyuncs.com</span><br><span class="line">1.使用mysql客户端连接RDS for Mysql:mysql -hRDS连接地址 -u账户 -p密码 -p3306</span><br><span class="line">2.连接成功，查询进程信息：show processlist 会列出当前连接信息，记下host就为本地机器的ip地址，将这个ip地址加到阿里云3306端口的白名单中。</span><br></pre></td></tr></table></figure>
-<p><img src="http://wx1.sinaimg.cn/mw690/0060lm7Tly1fyqzk30spuj30m407xn0u.jpg" alt=""><br>
-<img src="http://wx2.sinaimg.cn/mw690/0060lm7Tly1fyqzk9qwo7j30kw04qgns.jpg" alt=""></p>
-<blockquote>
-<p>附：在windows系统上操作（我的为例）:</p>
+<p><font color="red">注意修改后清除缓存。</font></p>
+<h3 id="自定义样式">自定义–样式</h3>
 <ol>
-<li>在mysql安装目录bin目录下，运行cmd窗口（如果配置了全局环境就不用指定bin目录）</li>
-<li>输入连接命令：<font color="red">mysql -hxxx.mysql.rds.aliyuncs.com -u账户 -p</font> (windows下，密码不直接跟在p后面，否则不给操作，端口也不用写了。敲完回车输密码)</li>
-<li>连接上后，命令：<font color="red">show processlist</font></li>
-<li>把列出来的ip加到白名单即可</li>
+<li>
+<p>主页：即第一页<br>
+application/index/view/index/index.html</p>
+</li>
+<li>
+<p>其他页面：包括登录页、进入后主页<br>
+application/admin/view</p>
+</li>
+<li>
+<p>首页的控制台关闭在：application/admin/view/layout/default<br>
+找到class=&quot;breadcrumb pull-left&quot;将其中的href=“javascript:;” 便可</p>
+</li>
+<li>
+<p>如果希望前台不可以修改某些字段，可以到具体的控制器里修改前端代码<br>
+地址：application/admin/view/控制器/edit<br>
+<font color="red">如自动生成的input框，加上disabled即可</font></p>
+</li>
+<li>
+<p>如果要修改逻辑…嗯，这就有点麻烦了。暂时没用到，寻求社区。</p>
+</li>
 </ol>
-</blockquote>
-<h3 id="远程连接云服务器上的mysql数据库"><font color="red">远程连接云服务器上的Mysql数据库</font></h3>
+<h3 id="遇到的一些问题">遇到的一些问题</h3>
 <blockquote>
-<ol>
-<li>登录云服务器</li>
-<li>进入mysql安装目录</li>
-<li>登录root账户</li>
-<li>授权<br>
-4.1. 你想用户使用密码从任何主机连接到mysql服务器的话:<font color="red">具体ip改为%</font><br>
-4.2. 如果你想允许指定用户从ip为192.168.90.101的主机连接到mysql服务器，并使用密码作为密码 : <font color="red">GRANT ALL PRIVILEGES ON <em>.</em> TO ‘root’@‘192.138.88.222’ IDENTIFIED BY ‘123’ WITH GRANT OPTION;</font></li>
-<li>同时打开云服务器的3306端口访问权限。这样navicat就能远程访问数据库了。</li>
-</ol>
+<p>fastAdmin在线执行命令报HY000-1364错误</p>
 </blockquote>
-<p><code>补充：修改访问ip白名单，可以直接用命令，也可以先设置%，再利用navicat登录，然后在mysql.user下将对应的用户名下的host字段改为指定ip。</code></p>
-<h3 id="mysql授权和撤销权限">mysql授权和撤销权限：</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">修改mysql配置文件:</span><br><span class="line"></span><br><span class="line">1. 删掉sql_mode中的STRICT_TRANS_TABLES</span><br><span class="line"></span><br><span class="line">2. 重启mysql</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p><a href="https://www.cnblogs.com/qlqwjy/p/8022575.html" target="_blank" rel="noopener">教程1</a><br>
-<a href="https://zhidao.baidu.com/question/1797755969749475787.html" target="_blank" rel="noopener">教程2</a><br>
-<a href="https://blog.csdn.net/hetaolife/article/details/40678295" target="_blank" rel="noopener">教程3</a></p>
+<p>fastAdmin在线安装插件—提示zipAachive解压失败—linux安装php扩展zip,zlip<br>
+官方文档：<a href="https://blog.csdn.net/qiufengwuqing123/article/details/53706235?locationNum=7&amp;fps=1" target="_blank" rel="noopener">解决方法</a></p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">远程连接mysql报10060错误：</span><br><span class="line">原因分析：</span><br><span class="line">1.安全组问题：云服务器配置安全组</span><br><span class="line">2.数据库用户权限问题：修改权限</span><br><span class="line">3.防火墙问题（坑）：</span><br><span class="line"></span><br><span class="line">开放防火墙端口</span><br><span class="line">添加需要监听的端口：3306、443均适用</span><br><span class="line">/sbin/iptables -I INPUT -p tcp --dport 3306 -j ACCEPT</span><br><span class="line"></span><br><span class="line">保存设置</span><br><span class="line">/etc/init.d/iptables save</span><br><span class="line"></span><br><span class="line">查看状态</span><br><span class="line">/etc/init.d/iptables status</span><br><span class="line"></span><br><span class="line">临时关闭防火墙服务</span><br><span class="line">service iptables stop</span><br><span class="line"></span><br><span class="line">开启防火墙服务</span><br><span class="line">service iptables start</span><br><span class="line"></span><br><span class="line">开机不再启动防火墙服务</span><br><span class="line">chkconfig iptables off</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">最后记住重新启动nginx或者apache 和 php</span><br><span class="line"></span><br><span class="line">service apache restart</span><br><span class="line">service nginx restart</span><br><span class="line"></span><br><span class="line">service php-fpm restart</span><br></pre></td></tr></table></figure>
+
                 
 
                 <hr>
@@ -267,12 +275,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2018/11/20/mysql/mysql-update/" data-toggle="tooltip" data-placement="top" title="mysql升级5.7">&larr; Previous Post</a>
+                            <a href="/2019/01/01/php/php-mysqli/" data-toggle="tooltip" data-placement="top" title="PHP使用mysqli的预处理方式crud">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2018/11/20/mysql/mysql-tip/" data-toggle="tooltip" data-placement="top" title="mysql简单数据搬移方法">Next Post &rarr;</a>
+                            <a href="/2018/11/25/french/french2/" data-toggle="tooltip" data-placement="top" title="“法语聊天用语02”">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -302,7 +310,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#linux上的mysql"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Linux上的mysql</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#阿里云-mysql"><span class="toc-nav-number">1.0.1.</span> <span class="toc-nav-text">阿里云 + mysql</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#安全远程连接云数据库mysql阿里云官网方案"><span class="toc-nav-number">1.0.1.1.</span> <span class="toc-nav-text">安全远程连接云数据库mysql：阿里云官网方案</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#远程连接云服务器上的mysql数据库"><span class="toc-nav-number">1.0.2.</span> <span class="toc-nav-text">远程连接云服务器上的Mysql数据库</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#mysql授权和撤销权限"><span class="toc-nav-number">1.0.3.</span> <span class="toc-nav-text">mysql授权和撤销权限：</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#安装和说明文档"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">安装和说明文档</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#自定义-菜单"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">自定义-菜单</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#自定义样式"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">自定义–样式</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#遇到的一些问题"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">遇到的一些问题</span></a></li></ol>
         
         </div>
       </aside>
@@ -322,9 +330,9 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#server" title="server">server</a>
+                          <a class="tag" href="/tags/#Fastadmin" title="Fastadmin">Fastadmin</a>
                         
-                          <a class="tag" href="/tags/#mysql" title="mysql">mysql</a>
+                          <a class="tag" href="/tags/#Blog" title="Blog">Blog</a>
                         
                     </div>
                 </section>
@@ -359,8 +367,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "your-disqus-ID";
-    var disqus_identifier = "http://yoursite-url/2018/11/20/mysql/mysql-linux/";
-    var disqus_url = "http://yoursite-url/2018/11/20/mysql/mysql-linux/";
+    var disqus_identifier = "http://yoursite-url/2018/12/31/fastadmin/fastadmin/";
+    var disqus_url = "http://yoursite-url/2018/12/31/fastadmin/fastadmin/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
