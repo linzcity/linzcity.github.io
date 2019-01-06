@@ -7,6 +7,54 @@
     </url>
 
     <url>
+        <loc>http://yoursite-url/2018/11/25/poem/It%20is%20midnight/</loc>
+        <lastmod>2019-01-06T07:55:52.789Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2018/11/25/poem/I%20remind%20now/</loc>
+        <lastmod>2019-01-06T07:55:24.726Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2018/11/25/poem/When%20the%20city%20lights%20up/</loc>
+        <lastmod>2019-01-06T07:52:57.504Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2018/11/25/poem/Wait%20for%20her/</loc>
+        <lastmod>2019-01-06T07:51:15.239Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2018/11/25/poem/Standing%20in%20the%20dark/</loc>
+        <lastmod>2019-01-06T07:49:13.498Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2018/11/25/poem/Long%20song/</loc>
+        <lastmod>2019-01-06T07:48:36.912Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite-url/2018/12/25/mysql/mysql-space-index/</loc>
         <lastmod>2019-01-01T08:50:18.557Z</lastmod>
         <changefreq>weekly</changefreq>

@@ -23,13 +23,6 @@
     </url>
 
     <url>
-        <loc>http://yoursite-url/tags/Blog/</loc>
-        <lastmod>2019-01-01T08:49:53.462Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite-url/tags/francais/</loc>
         <lastmod>2019-01-01T08:49:53.462Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -46,6 +39,20 @@
     <url>
         <loc>http://yoursite-url/tags/mysql/</loc>
         <lastmod>2019-01-01T08:50:18.557Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/tags/Blog/</loc>
+        <lastmod>2019-01-06T07:55:52.789Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/tags/%E8%A8%80/</loc>
+        <lastmod>2019-01-06T07:55:52.789Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
