@@ -45,14 +45,14 @@
 
     <url>
         <loc>http://yoursite-url/tags/Blog/</loc>
-        <lastmod>2019-01-08T03:01:23.151Z</lastmod>
+        <lastmod>2019-01-08T03:13:29.017Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://yoursite-url/tags/%E8%A8%80/</loc>
-        <lastmod>2019-01-08T03:01:23.151Z</lastmod>
+        <lastmod>2019-01-08T03:13:29.017Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

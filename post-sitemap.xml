@@ -8,7 +8,15 @@
 
     <url>
         <loc>http://yoursite-url/2017/07/18/poem/Standing%20in%20the%20dark/</loc>
-        <lastmod>2019-01-08T03:01:23.151Z</lastmod>
+        <lastmod>2019-01-08T03:13:29.017Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2018/10/01/poem/When%20the%20city%20lights%20up/</loc>
+        <lastmod>2019-01-08T03:12:33.542Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -17,14 +25,6 @@
     <url>
         <loc>http://yoursite-url/2017/12/01/poem/Wait%20for%20her/</loc>
         <lastmod>2019-01-08T03:00:34.644Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite-url/2018/10/01/poem/When%20the%20city%20lights%20up/</loc>
-        <lastmod>2019-01-08T02:57:25.096Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
