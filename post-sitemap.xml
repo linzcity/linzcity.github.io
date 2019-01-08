@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>http://yoursite-url/2018/11/25/poem/Standing%20in%20the%20dark/</loc>
+        <lastmod>2019-01-08T02:38:30.662Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite-url/2018/10/01/poem/Long%20song/</loc>
+        <lastmod>2019-01-08T02:30:25.618Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite-url/2018/11/25/poem/It%20is%20midnight/</loc>
         <lastmod>2019-01-06T07:55:52.789Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -33,22 +49,6 @@
     <url>
         <loc>http://yoursite-url/2018/11/25/poem/Wait%20for%20her/</loc>
         <lastmod>2019-01-06T07:51:15.239Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite-url/2018/11/25/poem/Standing%20in%20the%20dark/</loc>
-        <lastmod>2019-01-06T07:49:13.498Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite-url/2018/11/25/poem/Long%20song/</loc>
-        <lastmod>2019-01-06T07:48:36.912Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
