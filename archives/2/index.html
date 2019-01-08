@@ -136,6 +136,13 @@
 
                         
                         <li>
+                            <a href="/about/">一个人，一本书</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/archive/">时间线</a>
                         </li>
                         
@@ -144,13 +151,6 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/about/">一个人，一本书</a>
                         </li>
                         
                     
@@ -213,185 +213,6 @@
 
 <div class="post-preview">
 
-    <a href="/2018/11/20/mysql/mysql-emoji/">
-        <h2 class="post-title">
-            mysql存储emoji表情
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            
-大概：mysql默认字符集为utf8，而utf8一个字符最多支持3个字节，但表情emoji占用4个字节，因此需要更改字符集为utf8mb4。
-
-
-windows下修改：
-
-1234567891011121314151617181920步骤：1.修改my.ini    找到mysql安装目录(比如：programdata - mysql - my.ini)，权限问题，用管理员操作cmd，进入......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Lin on
-            2018-11-20
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#server" title="server">server</a>
-            
-              <a href="/tags/#mysql" title="mysql">mysql</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/11/20/mysql/mysql-update/">
-        <h2 class="post-title">
-            mysql升级5.7
-        </h2>
-        <h3 class="post-subtitle">
-            5.7新特性：空间索引
-        </h3>
-        <div class="post-content-preview">
-            
-项目需要用到数据库的空间索引，只有5.7+支持。
-
-参考文档：
-1234567891011关闭mysql服务(很重要): service mysqld stop移出现有数据库：yum list installed | grep mysql把列出的全部移除：yum -y remove mysql-libs.x86_64移除相关文件：find / -name mysqlrm -rf ***接下......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Lin on
-            2018-11-20
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#server" title="server">server</a>
-            
-              <a href="/tags/#mysql" title="mysql">mysql</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/11/20/mysql/mysql-linux/">
-        <h2 class="post-title">
-            远程连接mysql
-        </h2>
-        <h3 class="post-subtitle">
-            服务器：阿里云
-        </h3>
-        <div class="post-content-preview">
-            Linux上的mysql
-阿里云 + mysql
-
-
-买了服务器后直接使用镜像市场，选择java环境，重置系统镜像（如：jdk + tomcat + mysql）
-云服务器远程连接：winscp
-云数据库远程连接：navicat、或者windows的cmd命令行
-首先设置云数据库白名单：IP白名单设置为0.0.0.0/0代表允许所有地址访问，设置为127.0.0.1代表禁止所有地址访问
-设置......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Lin on
-            2018-11-20
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#server" title="server">server</a>
-            
-              <a href="/tags/#mysql" title="mysql">mysql</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/11/20/mysql/mysql-tip/">
-        <h2 class="post-title">
-            mysql简单数据搬移方法
-        </h2>
-        <h3 class="post-subtitle">
-            简单数据，简单数据，简单数据
-        </h3>
-        <div class="post-content-preview">
-            
-如果想在把本地数据库结构和数据搬移到云数据库上。
-我的方法：
-想方设法远程连上云数据库（navicat），把本地的数据库表结构导出向导为csv文件，然后在云数据库下导入向导csv。返回云端，刷新一下，搞定。
-
-12如果上述方法不行：新方法：直接拖拽本地表到目标库中。
-
-附：mysql的timestamp默认值问题：坑
-
-12345678910设计了一个timestamp类型字段，默认值为：......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Lin on
-            2018-11-20
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#server" title="server">server</a>
-            
-              <a href="/tags/#mysql" title="mysql">mysql</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/11/11/server/server-tomcat/">
-        <h2 class="post-title">
-            域名直接指向tomcat项目
-        </h2>
-        <h3 class="post-subtitle">
-            环境：Linux + mysql + java + Aapche
-        </h3>
-        <div class="post-content-preview">
-            123451.端口映射: 80到8080iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080如果服务器默认没开启80端口：在根目录下执行：/sbin/iptables -A INPUT -p udp --dport 58 -j ACCEPT
-相关文章：(值得一看)
-https://blog.csd......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Lin on
-            2018-11-11
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#Blog" title="Blog">Blog</a>
-            
-              <a href="/tags/#server" title="server">server</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2018/11/11/server/server-https/">
         <h2 class="post-title">
             Nginx配置https
@@ -443,9 +264,7 @@ nignx安装证书：重点
             二零一八
         </h3>
         <div class="post-content-preview">
-            
-东方古国，崛起新采。东临沧海，西邻多邦
-
+            东方古国，崛起新采。东临沧海，西邻多邦
 三十一省港澳台，十大河川五名山
 地大物博，资源遍神州大地
 人才辈出，风华盖古往千年
@@ -459,10 +278,48 @@ nignx安装证书：重点
 禹迹昌荣，全国人之勉奋
 百废具兴，自此而始
 大国形象，扬名天下
-
 时是新年，正属青葱
+道路宽而大厦高，方......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Lin on
+            2018-10-01
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Blog" title="Blog">Blog</a>
+            
+              <a href="/tags/#言" title="言">言</a>
+            
+        </div>
+    
 
-道路宽而大......
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2018/10/01/poem/When the city lights up/">
+        <h2 class="post-title">
+            当繁华都市的灯光亮起
+        </h2>
+        <h3 class="post-subtitle">
+            Salut
+        </h3>
+        <div class="post-content-preview">
+            当繁华都市的灯光亮起
+歌舞厅里传来躁动的声音
+大街小巷，市井街头
+喧闹、享乐、摇晃、跃动
+遥远的某个地方
+边境处、黑暗处、寒冷处、炎热处
+荒凉处、陡峭处、贫瘠处、寂静处
+有一群人
+站在土地之上，星辰之下
+他们都有一个共同的名字 —— 中国军人
+...
         </div>
     </a>
     
@@ -505,9 +362,191 @@ This BeanTech theme created by YuHsuan modified from the original Porter ......
         </p>
         <div class="tags">
             
+              <a href="/tags/#Blog" title="Blog">Blog</a>
+            
               <a href="/tags/#Hexo" title="Hexo">Hexo</a>
             
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2018/06/25/poem/It is midnight/">
+        <h2 class="post-title">
+            似乎深夜了
+        </h2>
+        <h3 class="post-subtitle">
+            黑暗
+        </h3>
+        <div class="post-content-preview">
+            似乎深夜了
+黑暗的房间，把城市的灯光当作窗景
+忧愁凝固在闷热的空气中
+融在风扇的嗡嗡声下
+茫茫，和想好的方向已经截然不同
+它掌控着我，而我放不下它
+高处有风，吹乱了头发
+也混乱了我的泪影
+他说，再想也是死路
+当然，往后退已无道
+只是太多，来得太匆忙
+猝不及防，比意料的更加凄惨
+鱼与熊掌不可兼得
+古人早已明白，今人却执迷不悟
+乱了心智，成了心魔
+选择摆在眼前，往下是万念俱灰
+山穷水尽，也有柳暗......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Lin on
+            2018-06-25
+        </p>
+        <div class="tags">
+            
               <a href="/tags/#Blog" title="Blog">Blog</a>
+            
+              <a href="/tags/#言" title="言">言</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/12/01/poem/Wait for her/">
+        <h2 class="post-title">
+            喜欢一个人就等她
+        </h2>
+        <h3 class="post-subtitle">
+            没有爱的世界，就像失去颜色的天空。
+        </h3>
+        <div class="post-content-preview">
+            喜欢一个人就等她
+等到她恋爱了就静静看她
+终于有一天她受伤了
+跑过来和我说 向我哭诉
+“他根本不值得你为他浪费时间”
+我劝她忘记，并开始一段新的感情
+于是她又去恋爱了
+对方生命中来来往往的人
+就如天上的繁星
+只是划过她夜空的流星
+始终不会是我
+最后我终于明白 这并不是爱
+...
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Lin on
+            2017-12-01
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Blog" title="Blog">Blog</a>
+            
+              <a href="/tags/#言" title="言">言</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/07/18/poem/Standing in the dark/">
+        <h2 class="post-title">
+            我站在黑夜的另一端
+        </h2>
+        <h3 class="post-subtitle">
+            你就像拂晓的阳光，将会灿烂，将会消逝
+        </h3>
+        <div class="post-content-preview">
+            我站在黑夜的另一端
+拐角处有你的身影
+可我不曾想追寻你的步伐
+爱，就如同一湾溪流
+从我的身旁徜徉而过
+到达我看不到的远方
+但从未消失在沧海桑田
+生命在于奔腾不息
+即使再从你的世界路过
+你我恐怕都不会停下脚步
+你追求富贵	我向往自由
+人生从此分道扬镳
+但彼此放手也要带上轻风 ​​​​
+
+*沧海桑田：世事无常。
+
+...
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Lin on
+            2017-07-18
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Blog" title="Blog">Blog</a>
+            
+              <a href="/tags/#言" title="言">言</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2016/07/28/poem/I remind now/">
+        <h2 class="post-title">
+            我记起来了，你曾经和我说
+        </h2>
+        <h3 class="post-subtitle">
+            但愿人长久，千里共婵娟。但愿爱长远，万里共思念。
+        </h3>
+        <div class="post-content-preview">
+            我记起来了，你曾经和我说
+人的一生，终究会经历一个人
+一个人来到世界
+一个人离开家乡
+一个人在外求学
+一个人拼搏闯荡
+你说我会一个人慢慢长大
+可我不再一个人了
+我有许多朋友，一些知己
+一些爱慕的人，还有一些梦想
+可你却走了 永远地走了
+我终于感觉到我是一个人
+我望着眼前未走的路
+比走过的要长多了
+我记起来了，我曾经和你说
+人的一生，终究会经历一个人
+一个人忍受孤独
+一个人无声流泪
+找一个人，......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Lin on
+            2016-07-28
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Blog" title="Blog">Blog</a>
+            
+              <a href="/tags/#言" title="言">言</a>
             
         </div>
     
@@ -557,6 +596,12 @@ This BeanTech theme created by YuHsuan modified from the original Porter ......
             
         
             
+            <a href="/tags/#français" title="français" rel="2">français</a>
+            
+        
+            
+        
+            
             <a href="/tags/#server" title="server" rel="7">server</a>
             
         
@@ -565,15 +610,9 @@ This BeanTech theme created by YuHsuan modified from the original Porter ......
             
         
             
-            <a href="/tags/#français" title="français" rel="2">français</a>
-            
-        
-            
         
             
             <a href="/tags/#言" title="言" rel="6">言</a>
-            
-        
             
         
     </div>
@@ -649,11 +688,11 @@ This BeanTech theme created by YuHsuan modified from the original Porter ......
         </li>
       
         <li>
-          <a href="/2018/11/25/poem/Wait for her/">喜欢一个人就等她</a>
+          <a href="/2018/11/25/french/french2/">“法语聊天用语02”</a>
         </li>
       
         <li>
-          <a href="/2018/11/25/poem/It is midnight/">似乎深夜了</a>
+          <a href="/2018/11/22/french/french1/">“法语聊天用语01”</a>
         </li>
       
     </ul>
@@ -682,7 +721,7 @@ This BeanTech theme created by YuHsuan modified from the original Porter ......
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">1</span></li></ul>
     </div>
 
         <hr>
